@@ -23,7 +23,70 @@ index.html← Volver al Menú</a>
 
 <div id="resultado"></div>
 
-<script src="prestadores.js"></script>
+<script>
+
+let prestadores = [];
+
+fetch('prestadorespolicia.json')
+    .then(response => response.json())
+    .then(data => {
+
+        prestadores = data;
+
+        document
+            .getElementById("buscador")
+            .addEventListener("keyup", buscar);
+
+    });
+
+function buscar() {
+
+    const texto =
+        document
+            .getElementById("buscador")
+            .value
+            .toLowerCase();
+
+    const encontrados = prestadores.filter(item =>
+
+        JSON.stringify(item)
+            .toLowerCase()
+            .includes(texto)
+
+    );
+
+    let html = "";
+
+    encontrados.slice(0,100).forEach(item => {
+
+        html += `
+            <hr>
+
+            <b>${item.nombre || item["NOMBRE HOMOLOGADO"] || ""}</b><br>
+
+            Departamento:
+            ${item.departamento || item["DEPARTAMENTO"] || ""}
+
+            <br>
+
+            Ciudad:
+            ${item.ciudad || item["CIUDAD"] || ""}
+
+            <br>
+
+            Dirección:
+            ${item.direccion || item["DIRECCION"] || ""}
+
+            <br>
+        `;
+
+    });
+
+    document.getElementById("resultado").innerHTML = html;
+
+}
+
+</script>
 
 </body>
 
