@@ -2,29 +2,128 @@
 <html>
 
 <head>
-    <title>Base de Conocimiento</title>
+
+<title>Base de Conocimiento</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Segoe UI, Arial, sans-serif;
+    background:#f3f6fa;
+}
+
+header{
+    background:#23466a;
+    color:white;
+    padding:20px;
+}
+
+header h1{
+    margin:0;
+}
+
+header p{
+    margin-top:5px;
+}
+
+.contenedor{
+    display:flex;
+    height:calc(100vh - 90px);
+}
+
+.menu{
+    width:300px;
+    background:white;
+    border-right:1px solid #ddd;
+    padding:20px;
+}
+
+.contenido{
+    flex:1;
+    padding:30px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+.menu a{
+    display:block;
+    text-decoration:none;
+    color:#23466a;
+    padding:10px;
+    border-radius:6px;
+    margin-bottom:6px;
+}
+
+.menu a:hover{
+    background:#eef5ff;
+}
+
+.tarjeta{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>BASE DE CONOCIMIENTO</h1>
+<header>
 
-<input type="text" placeholder="Buscar...">
+<h1>📚 BASE DE CONOCIMIENTO</h1>
 
-<h2>Menú</h2>
+<p>Biblioteca de Consulta Operativa</p>
 
-<li>
-    <a href="neonatos.html">Menores de 1 año</a>
-</li>
+</header>
 
-<li>
-    <a href="edad-fecha-nacimiento.html">Cuando no tenemos fecha de nacimiento</a>
-</li>
-    
-<li>
-    <a href="prestadores-policia.html">Prestadores Policía</a>
-</li>
-    
+<div class="contenedor">
+
+    <div class="menu">
+
+        <input type="text" placeholder="Buscar...">
+
+        <h3>📂 Menú</h3>
+
+        #
+        👶 Menores de 1 año
+        </a>
+
+        #
+        📅 Cuando no tenemos fecha de nacimiento
+        </a>
+
+        #
+        🏥 Prestadores Policía
+        </a>
+
+    </div>
+
+    <div class="contenido">
+
+        <div class="tarjeta">
+
+            <h2>Bienvenido</h2>
+
+            <p>
+            Seleccione una opción del menú para visualizar la información.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
 </body>
 
 </html>
