@@ -1,1 +1,187 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+
+<title>Guiones Presencial</title>
+
+<style>
+
+body{
+font-family:Arial;
+padding:20px;
+}
+
+#buscador{
+width:100%;
+padding:12px;
+font-size:16px;
+margin-bottom:20px;
+}
+
+.bloque{
+border:1px solid #ccc;
+margin-bottom:20px;
+border-radius:10px;
+overflow:hidden;
+}
+
+.titulo{
+background:#1da1f2;
+color:white;
+padding:10px;
+font-size:20px;
+font-weight:bold;
+}
+
+.contenido{
+padding:15px;
+background:white;
+}
+
+.observacion{
+margin-top:10px;
+background:#f5f5f5;
+padding:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Guiones Presencial</h1>
+
+<a href="index.html">
+← Volver al menú
+</a>
+
+<br><br>
+
+<input
+type="text"
+id="buscador"
+placeholder="Buscar guion...">
+
+<div id="contenedor">
+
+<div class="bloque">
+
+<div class="titulo">
+1. SALUDO
+</div>
+
+<div class="contenido">
+
+Buenos(as) (días, tardes, noches)
+bienvenido a la Superintendencia
+Nacional de Salud, me presento,
+mi nombre es __________
+¿En qué le puedo colaborar?
+
+<div class="observacion">
+
+Presentarse con nombre y apellido.
+
+Establecer contacto visual con
+el usuario.
+
+Aplica para todas las gestiones.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="bloque">
+
+<div class="titulo" style="background:#cc0000;">
+2. HABEAS DATA
+</div>
+
+<div class="contenido">
+
+¿En cumplimiento de la Ley 1581 de 2012,
+autoriza a la Superintendencia Nacional
+de Salud a tratar sus datos personales
+para su respectiva gestión interna?
+
+<div class="observacion">
+
+Usar antes de solicitar los datos
+del peticionario.
+
+Aplica para todas las gestiones.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="bloque">
+
+<div class="titulo" style="background:#ff6600;">
+PERSUADIR AUTORIZACIÓN HABEAS DATA
+</div>
+
+<div class="contenido">
+
+Sr(a). ___________
+
+Para poder registrar su solicitud
+es importante que autorice
+el tratamiento de datos personales.
+
+<div class="observacion">
+
+Utilizar cuando el usuario
+no autorice Habeas Data.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const buscador =
+document.getElementById("buscador");
+
+buscador.addEventListener("keyup",()=>{
+
+const texto =
+buscador.value.toLowerCase();
+
+document
+.querySelectorAll(".bloque")
+.forEach(b=>{
+
+if(
+b.innerText
+.toLowerCase()
+.includes(texto)
+){
+
+b.style.display="block";
+
+}else{
+
+b.style.display="none";
+
+}
+
+});
+
+});
+
+</script>
+
+</body>
+
+</html>
