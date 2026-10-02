@@ -33,7 +33,7 @@ header p{
 }
 
 .menu{
-    width:220px;
+    width:260px;
     background:white;
     border-right:1px solid #ddd;
     padding:20px;
@@ -131,24 +131,18 @@ input{
 
 <div class="contenedor">
 
-    <div class="menu">
+<div class="menu">
 
-        <input type="text" placeholder="Buscar...">
+<input
+    type="text"
+    id="buscador"
+    placeholder="🔍 Buscar tema...">
 
-<h3>📂 Menú</h3>
+<p>
+Escriba una palabra para filtrar los módulos.
+</p>
 
-<a href="neonatos.html">
-👶 Menores de 1 año
-</a>
-
-<a href="edad-fecha-nacimiento.html">
-📅 Cuando no tenemos fecha de nacimiento
-</a>
-
-<a href="prestadores-policia.html">
-🏥 Prestadores Policía
-</a>
-
+</div>
         
     </div>
 
@@ -158,7 +152,9 @@ input{
 
     <div class="grid-modulos">
 
-        <a class="modulo" href="neonatos.html">
+<a class="modulo"
+href="neonatos.html"
+data-busqueda="menores bebe recién nacido neonato documento registro civil">
 
             <div class="modulo-icono">👶</div>
 
@@ -171,7 +167,9 @@ input{
 
         </a>
 
-        <a class="modulo" href="edad-fecha-nacimiento.html">
+<a class="modulo"
+href="edad-fecha-nacimiento.html"
+data-busqueda="fecha nacimiento edad documento validacion">
 
             <div class="modulo-icono">📅</div>
 
@@ -184,7 +182,9 @@ input{
 
         </a>
 
-        <a class="modulo" href="prestadores-policia.html">
+<a class="modulo"
+href="prestadores-policia.html"
+data-busqueda="prestadores policia ips espri hospital clinica">
 
             <div class="modulo-icono">🏥</div>
 
@@ -203,6 +203,40 @@ input{
 
 </div>
 
+<script>
+
+const buscador =
+    document.getElementById("buscador");
+
+const modulos =
+    document.querySelectorAll(".modulo");
+
+buscador.addEventListener("keyup", () => {
+
+    const texto =
+        buscador.value.toLowerCase();
+
+    modulos.forEach(modulo => {
+
+        const contenido =
+            modulo.dataset.busqueda.toLowerCase();
+
+        if(contenido.includes(texto)){
+
+            modulo.style.display = "block";
+
+        }else{
+
+            modulo.style.display = "none";
+
+        }
+
+    });
+
+});
+
+</script>
+    
 </body>
 
 </html>
