@@ -143,11 +143,9 @@ Escriba una palabra para filtrar los módulos.
 </p>
 
 </div>
-        
-    </div>
 
 <div class="contenido">
-
+    
     <h2>Biblioteca de Consulta</h2>
 
     <div class="grid-modulos">
@@ -205,25 +203,22 @@ data-busqueda="prestadores policia ips espri hospital clinica">
 
 <script>
 
-const buscador =
-    document.getElementById("buscador");
+const buscador = document.getElementById("buscador");
+const modulos = document.querySelectorAll(".modulo");
 
-const modulos =
-    document.querySelectorAll(".modulo");
+buscador.addEventListener("input", function(){
 
-buscador.addEventListener("keyup", () => {
-
-    const texto =
-        buscador.value.toLowerCase();
+    const texto = this.value.toLowerCase().trim();
 
     modulos.forEach(modulo => {
 
         const contenido =
-            modulo.dataset.busqueda.toLowerCase();
+            modulo.getAttribute("data-busqueda")
+            .toLowerCase();
 
-        if(contenido.includes(texto)){
+        if(texto === "" || contenido.includes(texto)){
 
-            modulo.style.display = "block";
+            modulo.style.display = "";
 
         }else{
 
