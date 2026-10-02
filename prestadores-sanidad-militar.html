@@ -60,15 +60,34 @@ function buscar() {
 
     let html = "";
 
-    resultados.forEach(item => {
+resultados.forEach(item => {
 
-        html += `
-            <hr>
-            <pre>${JSON.stringify(item,null,2)}</pre>
-        `;
+    html += `
+        <hr>
 
-    });
+        <strong>
+        ${item["NOMBRE HOMOLOGADO"]}
+        </strong>
 
+        <br>
+
+        Departamento:
+        ${item["DEPARTAMENTO"]}
+
+        <br>
+
+        Ciudad:
+        ${item["CIUDAD"]}
+
+        <br>
+
+        Dirección:
+        ${item["DIRECCIÓN"]}
+
+        <br>
+    `;
+
+});
     document
         .getElementById("resultado")
         .innerHTML = html;
