@@ -25,6 +25,58 @@ style="width:500px;padding:10px;">
 
 <div id="resultado"></div>
 
+<script>
+
+let datos = [];
+
+fetch("prestadores-sanidad-militar.json")
+.then(respuesta => respuesta.json())
+.then(json => {
+
+    datos = json;
+
+    document
+        .getElementById("buscador")
+        .addEventListener("keyup", buscar);
+
+});
+
+function buscar() {
+
+    const texto =
+    document
+        .getElementById("buscador")
+        .value
+        .toLowerCase();
+
+    const resultados =
+        datos.filter(item =>
+
+            JSON.stringify(item)
+            .toLowerCase()
+            .includes(texto)
+
+        );
+
+    let html = "";
+
+    resultados.forEach(item => {
+
+        html += `
+            <hr>
+            <pre>${JSON.stringify(item,null,2)}</pre>
+        `;
+
+    });
+
+    document
+        .getElementById("resultado")
+        .innerHTML = html;
+
+}
+
+</script>
+
 </body>
 
 </html>
